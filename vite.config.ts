@@ -1,9 +1,23 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import FullReload from "vite-plugin-full-reload";
+import { execSync } from "child_process";
+const commitHash = execSync("git rev-parse --verify --short HEAD")
+  .toString()
+  .trim();
+const versionTag = execSync("git --no-pager tag --points-at HEAD")
+  .toString()
+  .trim();
+// If not empty then it's not clean
+const gitClean = execSync("git status --porcelain").toString() ? false : true;
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    __COMMIT_HASH__: JSON.stringify(commitHash),
+    __VERSION_TAG__: JSON.stringify(versionTag),
+    __GIT_CLEAN__: gitClean,
+  },
   plugins: [
     react({
       babel: {
@@ -12,7 +26,7 @@ export default defineConfig({
         },
       },
     }),
-    FullReload(["src/components/widgets/*"]),
+    FullReload(["src/components/*"]),
   ],
   // prevent vite from obscuring rust errors
   clearScreen: false,

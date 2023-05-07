@@ -12,7 +12,27 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "shell": {
+        "all": false,
+        "execute": true
+      },
+      "path": {
+        "all": true
+      },
+      "os": {
+        "all": true
+      },
+      "window": {
+        "all": false,
+        "close": true,
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true
+      }
     },
     "bundle": {
       "active": true,
@@ -55,11 +75,13 @@
     },
     "windows": [
       {
-        "fullscreen": false,
-        "height": 600,
-        "resizable": true,
         "title": "model-viewer",
-        "width": 800
+        "width": 1289,
+        "height": 709,
+        "minWidth": 880,
+        "minHeight": 740,
+        "decorations": false,
+        "tabbingIdentifier": "modelviewer"
       }
     ]
   }

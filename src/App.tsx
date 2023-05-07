@@ -1,32 +1,28 @@
-import { useState } from "react";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { DemoGreeting } from "./components/commons/demo-greeting";
+import "@shoelace-style/shoelace/dist/themes/light.css";
+import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path.js";
 
-function App() {
-  const [count, setCount] = useState(0);
+setBasePath(
+  "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.4.0/dist/"
+);
 
+import { WindowLayout } from "./components/Window";
+import { MainLayoutRoute } from "./components/MainLayout";
+import { TopBar } from "./components/TopBar";
+
+const Layout = () => {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <DemoGreeting></DemoGreeting>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <MainLayoutRoute></MainLayoutRoute>
     </>
+  );
+};
+
+function App() {
+  return (
+    <WindowLayout>
+      <TopBar data-tauri-drag-region></TopBar>
+      <Layout></Layout>
+    </WindowLayout>
   );
 }
 
