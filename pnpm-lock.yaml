@@ -60,6 +60,9 @@ devDependencies:
   vite:
     specifier: ^4.3.2
     version: 4.3.2(@types/node@18.16.3)
+  vite-plugin-full-reload:
+    specifier: ^1.0.5
+    version: 1.0.5(vite@4.3.2)
 
 packages:
 
@@ -1874,6 +1877,16 @@ packages:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
       punycode: 2.3.0
+    dev: true
+
+  /vite-plugin-full-reload@1.0.5(vite@4.3.2):
+    resolution: {integrity: sha512-kVZFDFWr0DxiHn6MuDVTQf7gnWIdETGlZh0hvTiMXzRN80vgF4PKbONSq8U1d0WtHsKaFODTQgJeakLacoPZEQ==}
+    peerDependencies:
+      vite: ^2 || ^3 || ^4
+    dependencies:
+      picocolors: 1.0.0
+      picomatch: 2.3.1
+      vite: 4.3.2(@types/node@18.16.3)
     dev: true
 
   /vite@4.3.2(@types/node@18.16.3):
