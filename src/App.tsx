@@ -20,7 +20,7 @@ const Layout = () => {
 function App() {
   return (
     <WindowLayout>
-      <TopBar></TopBar>
+      <TopBar data-tauri-drag-region></TopBar>
       <Layout></Layout>
     </WindowLayout>
   );
