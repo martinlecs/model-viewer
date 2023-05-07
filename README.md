@@ -6,7 +6,11 @@ GUI app to view glTF models and more.
 
 ### Prerequisites
 
-Follow instructions found [here](https://tauri.app/v1/guides/getting-started/prerequisites).
+- Node.js v18.16.0 LTS
+- Rust v1.69.0
+- pnpm v8.4.0
+
+Install anything else required [here](https://tauri.app/v1/guides/getting-started/prerequisites).
 
 ```
 pnpm install
