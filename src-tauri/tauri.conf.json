@@ -23,15 +23,15 @@
         "all": true
       },
       "window": {
-        "setResizable": true,
-        "setTitle": true,
-        "maximize": true,
-        "unmaximize": true,
-        "minimize": true,
-        "unminimize": true,
+        "all": false,
         "close": true,
-        "startDragging": true,
-        "setSize": true
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true
       }
     },
     "bundle": {
@@ -80,13 +80,7 @@
         "height": 709,
         "minWidth": 880,
         "minHeight": 740,
-        "resizable": true,
-        "fullscreen": false,
-        "decorations": true,
-        "transparent": false,
-        "fileDropEnabled": false,
-        "visible": true,
-        "hiddenTitle": true,
+        "decorations": false,
         "tabbingIdentifier": "modelviewer"
       }
     ]

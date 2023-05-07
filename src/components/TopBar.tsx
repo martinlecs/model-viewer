@@ -10,7 +10,7 @@ import "./commons/icons/MaximiseIcon";
 @customElement("top-bar")
 class TopBarWC extends LitElement {
   static styles = css`
-    :host {
+    .top-bar__main {
       display: flex;
       height: 38px;
       z-index: var(--sl-z-index-drawer);
@@ -56,46 +56,47 @@ class TopBarWC extends LitElement {
       align-items: center;
       border-radius: var(--sl-border-radius-medium);
       height: 38px;
-
-      &:hover {
-        background-color: var(--sl-color-neutral-700);
-        cursor: pointer;
-      }
+    }
+    .top-bar__window-controls__control:hover {
+      background-color: var(--sl-color-neutral-700);
+      cursor: pointer;
     }
   `;
 
   render() {
     return html`
-      <div class="top-bar__icon">
-        <div class="top-bar__icon__title">
-          <p>model-viewer</p>
+      <div data-tauri-drag-region class="top-bar__main">
+        <div class="top-bar__icon">
+          <div class="top-bar__icon__title unselectable">
+            <p>model-viewer</p>
+          </div>
+          <div class="top-bar__icon__version unselectable">
+            <p>
+              ${(__VERSION_TAG__ || __COMMIT_HASH__) +
+              (__GIT_CLEAN__ ? "" : "-dirty")}
+            </p>
+          </div>
         </div>
-        <div class="top-bar__icon__version">
-          <p>
-            ${(__VERSION_TAG__ || __COMMIT_HASH__) +
-            (__GIT_CLEAN__ ? "" : "-dirty")}
-          </p>
-        </div>
-      </div>
-      <div class="top-bar__progress-bar"></div>
-      <div class="top-bar__window-controls">
-        <div
-          class="top-bar__window-controls__control"
-          @click="${() => appWindow.minimize()}"
-        >
-          <minimise-icon></minimise-icon>
-        </div>
-        <div
-          class="top-bar__window-controls__control"
-          @click="${() => appWindow.toggleMaximize()}"
-        >
-          <maximise-icon></maximise-icon>
-        </div>
-        <div
-          class="top-bar__window-controls__control"
-          @click="${() => appWindow.close()}"
-        >
-          <close-icon></close-icon>
+        <div class="top-bar__progress-bar"></div>
+        <div class="top-bar__window-controls">
+          <div
+            class="top-bar__window-controls__control"
+            @click="${() => appWindow.minimize()}"
+          >
+            <minimise-icon></minimise-icon>
+          </div>
+          <div
+            class="top-bar__window-controls__control"
+            @click="${() => appWindow.toggleMaximize()}"
+          >
+            <maximise-icon></maximise-icon>
+          </div>
+          <div
+            class="top-bar__window-controls__control"
+            @click="${() => appWindow.close()}"
+          >
+            <close-icon></close-icon>
+          </div>
         </div>
       </div>
     `;
